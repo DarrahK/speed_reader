@@ -1,5 +1,7 @@
 # Speed Reader — RSVP
 
+**[Live Demo](https://darrahk.github.io/speed_reader/)**
+
 A web-based speed reading app using Rapid Serial Visual Presentation (RSVP). Words are displayed one at a time with an Optimal Recognition Point (ORP) highlight, keeping your eyes fixed on a single point for faster reading.
 
 ## How It Works
