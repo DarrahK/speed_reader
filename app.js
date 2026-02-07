@@ -50,17 +50,8 @@ function getOrpIndex(word) {
 
 // ── Timing ──
 
-function getDelay(word) {
-  const base = 60000 / wpm;
-  // Add pause for punctuation at end of word
-  if (/[.,;:!?]$/.test(word)) {
-    return base * 1.5;
-  }
-  // Slightly longer for long words
-  if (word.length > 8) {
-    return base * 1.2;
-  }
-  return base;
+function getDelay() {
+  return 60000 / wpm;
 }
 
 // ── Display a Word ──
@@ -71,7 +62,8 @@ function displayWord(word) {
   wordPivot.textContent = word[pivot] || '';
   wordAfter.textContent = word.slice(pivot + 1);
 
-  // Update progress
+  // Update progress with smooth constant-speed transition
+  progressFill.style.transitionDuration = (60000 / wpm) + 'ms';
   const progress = ((currentIndex + 1) / words.length) * 100;
   progressFill.style.width = progress + '%';
   progressText.textContent = `${currentIndex + 1} / ${words.length}`;

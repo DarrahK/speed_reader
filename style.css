@@ -291,7 +291,7 @@ input[type="color"]::-webkit-color-swatch {
   width: 0%;
   background: #4a90d9;
   border-radius: 2px;
-  transition: width 0.1s linear;
+  transition: width 0s linear;
 }
 
 #progress-text {
