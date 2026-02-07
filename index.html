@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Speed Reader — RSVP</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Input Screen -->
+  <div id="input-screen">
+    <h1>Speed Reader</h1>
+    <p class="subtitle">Paste your text below and configure your reading settings.</p>
+
+    <textarea id="text-input" placeholder="Paste your text here...">The quick brown fox jumps over the lazy dog. Speed reading is a technique that allows you to read faster while maintaining comprehension. By training your eyes to fixate on a single point, you reduce the time spent moving between words. RSVP, or Rapid Serial Visual Presentation, takes this further by showing you one word at a time at a controlled rate. This eliminates saccadic eye movements entirely, letting your brain focus purely on processing each word. With practice, most people can comfortably read at 400 to 600 words per minute, well above the average reading speed of 250 words per minute.</textarea>
+
+    <div class="settings">
+      <div class="setting-group">
+        <label for="wpm-input">Speed: <span id="wpm-display">300</span> WPM</label>
+        <input type="range" id="wpm-input" min="100" max="1000" step="10" value="300">
+      </div>
+
+      <div class="setting-group">
+        <label for="font-size-input">Font size: <span id="font-size-display">48</span>px</label>
+        <input type="range" id="font-size-input" min="24" max="72" step="2" value="48">
+      </div>
+
+      <div class="setting-row">
+        <div class="setting-group">
+          <label for="bg-color">Background</label>
+          <input type="color" id="bg-color" value="#1a1a2e">
+        </div>
+
+        <div class="setting-group">
+          <label for="text-color">Text color</label>
+          <input type="color" id="text-color" value="#e0e0e0">
+        </div>
+
+        <div class="setting-group">
+          <label for="highlight-color">Highlight</label>
+          <input type="color" id="highlight-color" value="#ff4444">
+        </div>
+      </div>
+    </div>
+
+    <button id="start-btn">Start Reading</button>
+  </div>
+
+  <!-- RSVP Reader Screen -->
+  <div id="reader-screen" class="hidden">
+    <div id="word-display">
+      <div id="word-container">
+        <span id="word-before"></span>
+        <div id="pivot-column">
+          <div class="focal-marker top">&#9660;</div>
+          <span id="word-pivot"></span>
+          <div class="focal-marker bottom">&#9650;</div>
+        </div>
+        <span id="word-after"></span>
+      </div>
+    </div>
+
+    <div id="controls">
+      <div class="controls-row">
+        <button id="back-btn" title="Back to input">&#8592; Back</button>
+        <button id="restart-btn" title="Restart">Restart</button>
+        <button id="play-pause-btn" title="Play/Pause">Pause</button>
+        <div class="wpm-controls">
+          <button id="wpm-down" title="Slower">&#8722;</button>
+          <span id="reader-wpm">300 WPM</span>
+          <button id="wpm-up" title="Faster">&#43;</button>
+        </div>
+      </div>
+      <div class="progress-row">
+        <div id="progress-bar">
+          <div id="progress-fill"></div>
+        </div>
+        <span id="progress-text">0 / 0</span>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
