@@ -116,9 +116,7 @@ function restart() {
   currentIndex = 0;
   progressFill.style.width = '0%';
   progressText.textContent = `0 / ${words.length}`;
-  wordBefore.textContent = '';
-  wordPivot.textContent = '';
-  wordAfter.textContent = '';
+  displayWord(words[0]);
   playPauseBtn.disabled = false;
   playPauseBtn.textContent = 'Play';
 }
